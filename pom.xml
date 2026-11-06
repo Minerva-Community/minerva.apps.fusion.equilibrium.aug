@@ -1,23 +1,48 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>seed.maven</groupId>
         <artifactId>common-pom</artifactId>
-        <version>1.1.10</version>
+        <version>1.2.4</version>
     </parent>
 
     <groupId>net.minerva-central</groupId>
-    <artifactId>PLACEHOLDER</artifactId>
+    <artifactId>minerva.apps.fusion.equilibrium.aug</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>minerva.apps.fusion.equilibrium.aug</name>
+    <description>ASDEX Upgrade equilibrium data (psi, F profile) from shotfiles, and psi(R,Z) interpolation. Moved out of DataSignals (package aug.equi).</description>
+
+    <properties>
+        <automatic.module.name>minerva.apps.fusion.equilibrium.aug</automatic.module.name>
+    </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:Minerva-Community/minerva.apps.fusion.equilibrium.aug.git</connection>
+        <developerConnection>scm:git:git@github.com:Minerva-Community/minerva.apps.fusion.equilibrium.aug.git</developerConnection>
+        <url>https://github.com/Minerva-Community/minerva.apps.fusion.equilibrium.aug</url>
+    </scm>
 
     <dependencies>
+        <!-- For the continuous-2nd-derivative (Dierckx) psi interpolation, add
+             net.minerva-central:dierckx-java here, BEFORE AlgorithmRepository, once it is deployed.
+             See CubicInterpolationDierckx. -->
         <dependency>
-            <groupId>seed.minerva</groupId>
-            <artifactId>minerva-core</artifactId>
-            <version>3.5.40</version>
+            <groupId>algorithmrepository</groupId>
+            <artifactId>AlgorithmRepository</artifactId>
+            <version>1.4.59</version>
+        </dependency>
+        <dependency>
+            <groupId>DataSignals</groupId>
+            <artifactId>DataSignals</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javaOneLineUtils</groupId>
+            <artifactId>JavaOneLineUtils</artifactId>
+            <version>1.5.36</version>
         </dependency>
     </dependencies>
 </project>
